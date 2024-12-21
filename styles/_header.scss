@@ -1,0 +1,54 @@
+@import "./variables";
+@import "./mixin";
+
+header {
+  background-color: red;
+  width: 100%;
+  padding: 5px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: transparent;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    &-logo {
+      color: $first-color;
+      font-size: $h2-font-size;
+      font-weight: $font-semi-bold;
+    }
+    &-list {
+      display: flex;
+      column-gap: 50px;
+    }
+
+    &-menu {
+      @include laptop {
+        display: none;
+      }
+    }
+    &-link {
+      color: $white-color;
+      font-weight: $font-medium;
+      transition: all 0.4s;
+      &:hover {
+        color: $first-color;
+      }
+    }
+  }
+}
+
+.blur-header {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  backdrop-filter: blur(32px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
